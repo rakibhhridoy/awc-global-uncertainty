@@ -1,0 +1,9 @@
+# Paper 1 — pinned dependencies (Python 3.11)
+# Captured from the working environment 2026-06-21.
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.8.0
+scipy==1.16.2
+rasterio==1.4.4
+pyarrow==23.0.1
+PyYAML==6.0.3

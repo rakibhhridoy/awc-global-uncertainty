@@ -1,0 +1,119 @@
+# --- data & derived artifacts (live on the external SSD, never committed) ---
+# 'data' is a symlink -> /Volumes/SSD Ex/PEDOFLUX_data/paper1_hydraulic
+/data
+data/
+*.tif
+*.tiff
+*.nc
+*.nc4
+*.zarr
+*.parquet
+*.csv
+*.zip
+*.tar*
+*.gz
+*.h5
+*.hdf
+
+# large model/eval outputs (regenerate via the pipeline)
+outputs/
+eval/
+figures/*.png
+figures/*.pdf
+
+# --- secrets ---
+.env
+.env.*
+!.env.example
+
+# --- node / d3 figures ---
+node_modules/
+figures/data/
+figures/out/
+
+# --- python / tooling ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+._*
+
+# --- temp ---
+/tmp/
+*.part
+
+# --- LaTeX build artifacts (manuscript sources .tex/.bib are tracked) ---
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+manuscript/*.pdf
+manuscript/**/*.pdf
+*.spl
+*.fls
+*.fdb_latexmk
+manuscript/cover_letter.docx
+manuscript/cover_letter.pdf
+manuscript/suggested_reviewers.docx
+manuscript/suggested_reviewers.pdf
+
+# assembled STOTEN submission package (binaries regenerable from manuscript/ + figures/)
+STOTEN_submission/*.pdf
+STOTEN_submission/*.docx
+STOTEN_submission/*.png
+STOTEN_submission/figures/
+STOTEN_submission/source/
+manuscript/Highlights.docx
+manuscript/Declaration_of_Interest.docx
+manuscript/Declaration_of_Interest.pdf
+docs/Technical_Guide.pdf
+docs/*.aux
+docs/*.toc
+docs/*.out
+docs/Plain_Language_Explainer.pdf
+manuscript/Manuscript_CommsEnv.pdf
+manuscript/Manuscript_CommsEnv.aux
+manuscript/Manuscript_CommsEnv.bbl
+manuscript/Manuscript_CommsEnv.blg
+manuscript/Manuscript_CommsEnv.out
+manuscript/Manuscript_CommsEnv.spl
+
+# CommsE&E submission package (binaries regenerable from sources + figures/out)
+SubmissionCommEE/*.pdf
+SubmissionCommEE/*.bbl
+SubmissionCommEE/*.aux
+SubmissionCommEE/*.log
+SubmissionCommEE/*.out
+SubmissionCommEE/figures/
+SubmissionCommEE/Supplementary_Information.pdf
+
+# npj + Scientific Reports submission packages (binaries regenerable)
+SubmissionNpjSustainAg/*.pdf
+SubmissionNpjSustainAg/*.bbl
+SubmissionNpjSustainAg/*.aux
+SubmissionNpjSustainAg/*.log
+SubmissionNpjSustainAg/*.out
+SubmissionNpjSustainAg/figures/
+SubmissionScientificReports/*.pdf
+SubmissionScientificReports/*.bbl
+SubmissionScientificReports/*.aux
+SubmissionScientificReports/*.log
+SubmissionScientificReports/*.out
+SubmissionScientificReports/figures/
+
+# SOIL (Copernicus/EGU) submission — track sources, ignore build artifacts + copied assets
+SubmissionSOIL/*.pdf
+SubmissionSOIL/*.bbl
+SubmissionSOIL/*.aux
+SubmissionSOIL/*.log
+SubmissionSOIL/*.out
+SubmissionSOIL/*.spl
+SubmissionSOIL/references.bib

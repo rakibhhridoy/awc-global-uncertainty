@@ -1,0 +1,44 @@
+# PEDOFLUX common grid — all rasters land here before tensorization.
+#
+# EPSG:6933 = WGS 84 / NSIDC EASE-Grid 2.0 Global (equal-area, metric).
+# 1 km target resolution keeps the global raster at ~34k x 14k pixels,
+# which is what StefaLand / Prithvi use and fits comfortably in Zarr.
+target:
+  crs: EPSG:6933
+  resolution_m: 1000
+  # Standard EASE-Grid 2.0 global bounds (metres).
+  bounds:
+    xmin: -17367530.45
+    ymin: -7314540.83
+    xmax:  17367530.45
+    ymax:  7314540.83
+  # Derived: width=34735, height=14629 at 1000 m.
+  resampling:
+    continuous:   bilinear     # SM, ET, SOC, climate normals
+    categorical:  nearest      # LULC, HWSD soil classes, Köppen
+    count:        sum          # population, fire counts (if added)
+  nodata:
+    float32: -9999.0
+    int16: -32768
+    uint8: 255
+
+# Depth intervals (cm) for all soil variables — GlobalSoilMap standard.
+depths:
+  - [0, 5]
+  - [5, 15]
+  - [15, 30]
+  - [30, 60]
+  - [60, 100]
+  - [100, 200]
+
+# Time axis for dynamic variables.
+time:
+  start: 2000-01-01
+  end:   2024-12-31
+  freq:  MS   # month-start; daily sources are aggregated to monthly first
+
+# Zarr chunking — tuned for (time, y, x) access patterns.
+chunks:
+  static: [1, 1024, 1024]         # soil, terrain, lithology
+  dynamic: [12, 512, 512]         # climate, SM, ET — one year per chunk
+  profiles: null                  # Parquet, not Zarr
