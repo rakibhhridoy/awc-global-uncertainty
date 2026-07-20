@@ -1,10 +1,9 @@
-# Paper 1 — Global Soil → Water Hydraulic Mapping
+# Global Soil → Water Hydraulic Mapping
 
-First of two PEDOFLUX papers. A data-driven global map of soil water-holding
+First of two PEDOFLUX study. A data-driven global map of soil water-holding
 properties (field capacity, wilting point, available water capacity) predicted from
 soil composition + climate + land cover, validated against observed soil-moisture
-dynamics. **No foundation model** — that's Paper 2, which reuses this study's data
-and must beat its baseline.
+dynamics.
 
 - Plan: [`docs/RESEARCH_PLAN.md`](docs/RESEARCH_PLAN.md)
 - Data provenance: [`docs/DATA_PROVENANCE.md`](docs/DATA_PROVENANCE.md)
